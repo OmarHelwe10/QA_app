@@ -187,5 +187,6 @@ def question(question_id):
     question = questions_collection.find_one({'_id': ObjectId(question_id)})
     return render_template('question.html', user=user, question=question)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5500))
+    app.run(debug=True, host='0.0.0.0', port=port)
